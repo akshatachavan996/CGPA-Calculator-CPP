@@ -38,9 +38,9 @@ F = 0
 ## 📂 Project Structure
 
 CGPA-Calculator-CPP/
-│
+|
 ├── main.cpp        
-└── README.md       
+|── README.md       
 
 ---
 
