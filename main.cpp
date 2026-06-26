@@ -1,10 +1,15 @@
 #include <iostream>
 #include <vector>
+#include <cctype>
 using namespace std;
 
-// Convert grade to points
+// =========================
+// Convert Grade → Points
+// =========================
 int getGradePoint(char grade)
 {
+    grade = toupper(grade);
+
     switch (grade)
     {
         case 'A': return 10;
@@ -12,13 +17,44 @@ int getGradePoint(char grade)
         case 'C': return 6;
         case 'D': return 4;
         case 'F': return 0;
-        default: return 0;
+        default: return -1; // invalid
     }
 }
 
+// =========================
+// Input Validation Function
+// =========================
+char inputGrade()
+{
+    char grade;
+
+    while (true)
+    {
+        cout << "Enter Grade (A/B/C/D/F): ";
+        cin >> grade;
+        grade = toupper(grade);
+
+        if (grade == 'A' || grade == 'B' || grade == 'C' ||
+            grade == 'D' || grade == 'F')
+        {
+            return grade;
+        }
+
+        cout << "Invalid grade! Please enter A, B, C, D, or F only.\n";
+    }
+}
+
+// =========================
+// MAIN FUNCTION
+// =========================
 int main()
 {
     int n;
+
+    cout << "==============================\n";
+    cout << "      CGPA CALCULATOR\n";
+    cout << "==============================\n";
+
     cout << "Enter number of courses: ";
     cin >> n;
 
@@ -34,20 +70,22 @@ int main()
     {
         cout << "\nCourse " << i + 1 << ":\n";
 
-        cout << "Grade (A/B/C/D/F): ";
-        cin >> grades[i];
+        grades[i] = inputGrade();
 
-        cout << "Credit Hours: ";
+        cout << "Enter Credit Hours: ";
         cin >> credits[i];
 
-        int gradePoint = getGradePoint(grades[i]);
+        int gp = getGradePoint(grades[i]);
 
         totalCredits += credits[i];
-        totalGradePoints += gradePoint * credits[i];
+        totalGradePoints += gp * credits[i];
     }
 
+    // =========================
+    // OUTPUT SECTION
+    // =========================
     cout << "\n==============================\n";
-    cout << "COURSE SUMMARY\n";
+    cout << "       COURSE SUMMARY\n";
     cout << "==============================\n";
 
     for (int i = 0; i < n; i++)
@@ -60,9 +98,10 @@ int main()
     double gpa = (double)totalGradePoints / totalCredits;
 
     cout << "\n==============================\n";
-    cout << "TOTAL CREDITS: " << totalCredits << endl;
-    cout << "TOTAL GRADE POINTS: " << totalGradePoints << endl;
-    cout << "GPA / CGPA: " << gpa << endl;
+    cout << "TOTAL CREDITS      : " << totalCredits << endl;
+    cout << "TOTAL GRADE POINTS : " << totalGradePoints << endl;
+    cout << "GPA / CGPA         : " << gpa << endl;
+    cout << "NOTE: For single semester GPA = CGPA\n";
     cout << "==============================\n";
 
     return 0;
