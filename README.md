@@ -39,8 +39,8 @@ F = 0
 
 CGPA-Calculator-CPP/
 │
-├── main.cpp
-└── README.md
+├── main.cpp        
+└── README.md       
 
 ---
 
@@ -85,8 +85,3 @@ GPA / CGPA: 9.11
 ## 👩‍💻 Author
 
 Akshata Chavan
-
----
-## 📜 License
-
-For educational use only
