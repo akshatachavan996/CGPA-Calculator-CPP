@@ -35,15 +35,6 @@ F = 0
 
 ---
 
-## 📂 Project Structure
-
-CGPA-Calculator-CPP/
-|
-|── main.cpp        
-|── README.md       
-
----
-
 ## 📖 How It Works
 
 1. Enter number of courses  
