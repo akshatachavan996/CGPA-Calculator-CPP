@@ -39,7 +39,7 @@ F = 0
 
 CGPA-Calculator-CPP/
 |
-├── main.cpp        
+|── main.cpp        
 |── README.md       
 
 ---
